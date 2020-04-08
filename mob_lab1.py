@@ -1,7 +1,7 @@
 import pandas as pd
-from pd import read_csv
 
-df1 = read_csv("data.csv")
+
+df1 = pd.read_csv("data.csv")
 
 NumberTel = 933156729
 KIn = 0 #коэф. входящих
@@ -28,9 +28,10 @@ for i in Outcoming:
 	
 Sms = SmsBill(df1[df1.msisdn_origin == NumberTel].sms_number.values, KSms, F)
 
-print(SumIncoming)
-print(SumOutcoming)
-print(Sms)
+print(f'{SumIncoming} - плата за входящие звонки клиента')
+print(f'{SumOutcoming} - плата за исходящие звонки клиента')
+print(f'{Sms} - плата за СМС')
+print(f'Итого к олате: {Sms + SumOutcoming + SumIncoming}')
 
 
 
